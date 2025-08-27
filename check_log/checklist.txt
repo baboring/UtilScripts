@@ -1,0 +1,36 @@
+# sub | label | ok_text | fail_text | not_patterns | patterns
+0|1 > Start map|OK >>>>>>>>>>>>>>>>> |Failed||Browse Started Browse;Starting Game;SeamlessTravel to
+0|1 > NetConnection Join|OK|||:SendInitialJoin: Sending hello.
+0|1 > Welcome map|OK|||Welcomed by server
+0|2 > Preload map|OK|Failed|| OnPreLoadMap: Loading map with URL
+0|2 > CurrentLayer LogId|OK|Failed||OnPreLoadMap: Begin
+1|2 > Determing Level|OK|Failed||Succeeded detemining Level
+0|2 > Loading Screen|OK|Failed||Loading Screen
+0|2 > LoadMap Start|OK|Failed||LogLoad: LoadMap
+0|2 > TearingDown map|OK|Failed||BeginTearingDown for
+0|2 > Game Mode|OK|Failed||LogLoad: Game class
+0|3 > State|OK||| GotoState: NewState:
+0|4 > Login|OK||| SSGameState_Menu: BeginPlay
+0|5 > LoadMap Done|OK|Failed||LogLoad: Took (\d+\.\d+) seconds
+0|6 > Travel map|OK|Failed||TravelCompleted
+0|6 > UserData|OK|Failed|| CharacterCosmetic: Modifier EngravingDefault
+0|7 > Identity|OK|||TENCENT: FOnlineIdentityTencent
+0|8 > SeamlessTravel|OK|||SeamlessTravel finished
+
+0|9 => loading requirement: PlayerController |OK|Failed|however we weren't waiting on it|Loading requirement PlayerController
+1|9 => loading requirement: PlayerState |OK|Failed|however we weren't waiting on it|Loading requirement PlayerState
+1|9 => loading requirement: Deployment |OK|Failed|however we weren't waiting on it|Loading requirement Deployment
+1|9 => loading requirement: TeamState |OK|Failed|however we weren't waiting on it|Loading requirement TeamState Valid
+1|9 => loading requirement: Configured |OK|Failed|however we weren't waiting on it|Loading requirement TeamState Configured
+
+0|88 > State WaitingToStart|OK|Failed||LogGameState: Match State Changed from EnteringMap to WaitingToStart
+1|88 > State InProgress|OK|Failed||LogGameState: Match State Changed from WaitingToStart to InProgress
+1|88 > State LeavingMap|OK|Failed||LogGameState: Match State Changed from InProgress to LeavingMap
+1|88 > State WaitingPostMatch|OK||Failed|LogGameState: Match State Changed from InProgress to WaitingPostMatch
+
+0|99 > Player Joined Squad|OK|||S_BP_PlayerController_C_\d{10}: joined
+0|99 > Alt-F4 pressed!|OK||| Alt-F4 pressed!
+#99 -> NetConnection Close|OK|||UNetConnection::Close:
+
+0|99 > End of Map|OK|Failed||GotoState: NewState:
+#BuildError|OK: Build success|Failed: Build error detected||error C[0-9]+;fatal error
